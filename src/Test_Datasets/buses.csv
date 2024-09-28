@@ -1,0 +1,17 @@
+Buses,,,,,
+ID,Driver,Current Location,Route Assigned,Capacity,Delayed Status
+B1,Joe Schmoe,A,R1,50,FALSE
+B2,April Lane,A,R1,50,FALSE
+B3,Jack Daniel,B,R1,50,FALSE
+B4,Leo Bulwark,C,R2,50,TRUE
+B5,Nathan Daniels,D,R2,50,FALSE
+B6,June Smith,E,R3,50,FALSE
+B7,Veronica Reinhardt,A,R4,50,FALSE
+B8,Julie Anne,C,R4,50,TRUE
+B9,James Dunn,F,R5,50,TRUE
+B10,Bobby Bowen,A,R5,50,FALSE
+B11,Carl Nightingale,E,R6,50,FALSE
+B12,Jonny Fast,G,R7,50,FALSE
+B13,Nathaniel Red,L,R7,50,FALSE
+B14,Rose Redds,A,R7,50,TRUE
+B15,Violet Black,N,R8,50,FALSE

@@ -1,0 +1,17 @@
+Buses,,,,,
+ID,Driver,Current Location,Route Assigned,Capacity,Delayed Status
+B001,Joe Schmoe,,R001,50,FALSE
+B002,April Lane,,R001,50,FALSE
+B003,Jack Daniel,,R001,50,FALSE
+B004,Leo Bulwark,,R002,50,TRUE
+B005,Nathan Daniels,,R002,50,FALSE
+B006,June Smith,,R003,50,FALSE
+B007,Veronica Reinhardt,,R004,50,FALSE
+B008,Julie Anne,,R004,50,TRUE
+B009,James Dunn,,R005,50,TRUE
+B0010,Bobby Bowen,,R005,50,FALSE
+B0011,Carl Nightingale,,R006,50,FALSE
+B0012,Jonny Fast,,R007,50,FALSE
+B0013,Nathaniel Red,,R007,50,FALSE
+B0014,Rose Redds,,R007,50,TRUE
+B0015,Violet Black,,R008,50,FALSE

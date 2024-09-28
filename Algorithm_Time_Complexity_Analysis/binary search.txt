@@ -1,0 +1,35 @@
+function binarySearch(search, list, start, end)
+    mid = (start + end) / 2 // cost: c1 times 1
+    if abs(start - end) == 1 // cost: c2 times 1
+        if list[start] == search // cost: c3 times between 0 and 1
+            return start // cost: c4 times between 0 and 1
+        else if list[end] == search // cost: c5 times between 0 and 1
+            return end // cost: c6 times between 0 and 1
+        else // cost: c7 times between 0 and 1
+            return // cost: c8 times between 0 and 1
+        endif
+    end if
+
+    // N = list.length
+    if search > list[mid] // cost: c9 times 1
+        start = mid // cost: c10 times between 0 and 1
+        return binarySearch(search, list, start, end) // cost: recursive cost worst case = logN average case = logN best case = 1
+    else if search < list[mid]
+        end = mid // cost: c11 times between 0 and 1
+        return binarySearch(search, list, start, end) // cost: recursive cost worst case = logN average case = logN best case = 1
+    else
+        return mid // cost c12 times between 0 and 1
+    endif
+end function
+
+Worst Case when element being searched for is the first or last element in the list
+T(n) = logN // excluding constant operational costs
+T(n) = O(log N)
+
+Best Case when element being searched for is in the center of the list
+T(n) = 1 // only constant operational costs
+T(n) = O(1)
+
+Average Case
+T(n) = logN // excluding constant operational costs
+T(n) = O(log N)

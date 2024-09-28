@@ -1,0 +1,57 @@
+// Final merged decision for database
+{
+    "User":{
+        "userID": "M0001",
+        "name": "Any Name",
+        "surname": "Any Surname",
+        "email": "whatever@gmail.com",
+        "userStartingBalance":  0,
+        "password": "anyPassword",
+        "tickets":[
+            "T0001",
+            "T0003"
+        ]
+    },
+    "Tickets":{
+        "ticketId": "T0001",
+        "busAssignedTo": "B0001",
+        "isValid": true,
+        "expiryDate": "20-03-2024"
+    },
+    "Bus":{
+        "busID": "B0001",
+        "capacity": 25,
+        "busDriver": "M0001",
+        "currentLocation": "S0003", // This might be removed
+        "routeAssigned": "R0001",
+        "delayedStatus": false // If delayed status is true, the times of this bus ID in the Stops will be delayed for 5min
+    },
+    "Stop":{
+        "stopId": "S0001",
+        "stopName": "Hyde Park",
+        "xLocation": 25.4, // Just thought it was a good idea to use this from Teon's proposal
+        "yLocation": 33.6,
+        "routesAvailable": ["R0001", "R0002"], // Identify all the routes that will be part of this stop
+        "bussesAssigned": { //busses assigned to this stop(according to the root's info) with the times expected
+            "B0002": ["08:00", "10:00"],
+            "B0001": ["09:00", "21:30"],
+            "B0005": ["12:15"],
+            "B0020": ["11:45", "12:45", "13:45"]
+        }
+    },
+    "Route":{
+        "routeID": "R0001",
+        "direction": "N",
+        "startPoint": "S0001", // Start point
+        "endPoint": "S0009", // End point
+        "routeStopsOrder": [ // All the stops of the route
+            "S0001",
+            "S0003",
+            "S0007",
+            "S0009" 
+        ],
+        "totalRouteDistance": "",
+        "totalRouteTime": "01:35",
+        "diversion": false
+    }
+}

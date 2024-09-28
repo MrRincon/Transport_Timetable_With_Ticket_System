@@ -1,0 +1,73 @@
+// function uses starting point as pivot point
+function partition(list, start, end)
+    pivot = partition[start] // cost: c1 times 1
+    count = 0 // cost: c2 times 1
+    for i = start, i < end do // cost: c3 times end - start
+        if list[start] <= pivot // cost: c4 times end - start
+            count = count + 1 // cost: c5 times between 0 and end - start
+        end if
+    end for
+    pivotIdx = start + count // cost: c6 times 1
+    swap(list[pivotIdx, list[start]]) // cost: c7 times 1
+    i = start // cost: c8 times 1
+    j = end // cost: c9 times 1
+    while i < pivotIdx and j > pivotIdx do // cost: c10 times 1
+        while list[i] <= pivot do // cost: c11 times between 1 and end - start
+            i = i + 1 // cost: c12 times between 0 and end - start
+        end while 
+        while list[j] > pivot do // cost: c13 times between 1 and end - start
+            j = j - 1 // cost: c14 times between 0 and end - start
+        end while
+
+        if i < pivotIdx and j > pivotIdx // cost: c15 times between 1 and end - start
+            swap(list[i++], list[j++]) // cost: c16 times 1
+        endif
+    end while
+    return pivotIdx // cost: c17 times 1
+end function
+
+Assuming the cost of each operation is constant 
+
+Worst Case:
+T(n) = c1 + c2 + ((c3 + c4 + c5) * (end - start)) + c6 + c7 + c8 + c9 + c10 + ((c11 + c12 + c13 + c14 + c15) * (end - start)) + c16 + c17
+T(n) = 1 + 1 + (3 * (end - start)) + 1 + 1 + 1 + 1 + 1 + (5 * (end - start)) + 1 + 1
+With the inclusion of constant operating times, and accounting for checking loop conditions as an operation cost, the worst case cost of operation is equal to:
+T(n) = 9 + (3 * (end - start)) + (5 * (end - start))
+T(n) = (end-start)^2 when ignoring constant operations
+
+Best Case:
+T(n) = c1 + c2 + ((c3 + c4) * (end - start)) + c6 + c7 + c9 + c10 + (c11 + c12 + c13 + c14 + c15) + c16 + 17
+T(n) = 1 + 1 + (2 * (end - start)) + 1 + 1 + 1 + 1 + (5) + 1 + 1
+With the inclusion of constant operating times, and accounting for checking loop conditions as an operation cost, the best case cost of operation is equal to:
+T(n) = 13 + (2 * (end - start))
+T(n) = (end - start) when ignoring constant operations
+
+function quickSort(list, start, end)
+    if start >= end // cost: c1 times 1
+        return // cost: c2 times between 0 and 1
+    endif
+    p = partition(list, start, end) // cost: partitionCost worstcase = (end-start)^2 and bestcase = (end - start)
+    quickSort(list, start, p-1) 
+    quickSort(list, p + 1, end) 
+    // n = list.length
+    // cost: recursive cost worstcase = n^2 bestcase = n * logn
+end function
+
+partitionCost treated as a constant
+Worst Case: 
+T(n) = c1 + c2 + partitionCost + recursive cost
+T(n) = 1 + 1 + 1 + n^2
+Including all constant operating costs:
+T(n) = 3 + n^2
+T(n) = n^2 when ignoring constant operations
+
+Time Complexity of O(n^2)
+
+Best Case:
+T(n) = c1 + partitionCost + recursive cost
+T(n) = 1 + 1 + n * logn
+Including all constant operating costs:
+T(n) = 2 + n * logn
+T(n) = n * logn // when ignoring constant costs
+
+Time Complexity of O (n log n)
